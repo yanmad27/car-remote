@@ -1,0 +1,157 @@
+.container {
+    border: 1px solid #f1f2f4;
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.1), 2px 2px 12px -2px rgba(232, 232, 232, 0.35);
+    border-radius: 20px;
+    overflow: hidden;
+}
+.weekDays {
+    display: flex;
+    width: 100%;
+    z-index: 1;
+}
+.day {
+    &:first-child {
+        min-width: 75px;
+        max-width: 75px;
+    }
+    &:last-child {
+        border-right: none;
+        width: calc(15% + 16.5px);
+    }
+    width: 15%;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid #f1f2f4;
+    border-bottom: 1px solid #f1f2f4;
+
+    .dayInfo {
+        cursor: pointer;
+        width: 72px;
+        height: 108px;
+        border-radius: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: column;
+        padding: 16px;
+        .dayName {
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 24px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: #5f6475;
+        }
+        .dayNumber {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 8px;
+            gap: 8px;
+            width: 40px;
+            height: 40px;
+            border-radius: 40px;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 24px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+    }
+    &.now {
+        .dayInfo {
+            background: #f8f8f9;
+            .dayNumber {
+                background: #1f9454;
+                color: #ffffff;
+            }
+        }
+    }
+}
+.timeScroll {
+    max-height: calc(100vh - 330px);
+    overflow: auto;
+}
+.timeWrapper {
+    display: flex;
+    position: relative;
+    height: 2250px;
+}
+
+.time {
+    &:first-child {
+        min-width: 75px;
+        max-width: 75px;
+    }
+    &:nth-last-child(2) {
+        border-right: none;
+    }
+    width: 15%;
+    border-right: 1px solid #f1f2f4;
+}
+.timeline {
+    margin-top: 24px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 75px;
+    top: 0;
+    left: 0;
+}
+
+.hour {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 12px;
+    gap: 12px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    /* identical to box height, or 133% */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    /* Neutrals/950 Text colors */
+
+    color: #111215;
+    div {
+        width: 100%;
+        height: 1px;
+        border-bottom: 1px solid #f1f2f4;
+    }
+}
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    & > div {
+        display: flex;
+        gap: 12px;
+    }
+    button {
+        justify-items: flex-start;
+        width: fit-content;
+        height: 40px;
+    }
+    .next,
+    .prev {
+        padding: 0;
+        width: 40px;
+    }
+    :global(.ant-picker) {
+        border-radius: 12px;
+    }
+}

@@ -1,0 +1,89 @@
+.container {
+    &:global(.ant-table-wrapper .ant-table-container) {
+        border-start-start-radius: 16px;
+        border-start-end-radius: 16px;
+    }
+    &:global(.ant-table-wrapper table) {
+        background: #ffffff;
+        border: 1px solid #f1f2f4;
+        box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.1), 2px 2px 12px -2px rgba(232, 232, 232, 0.35);
+        border-radius: 16px;
+    }
+
+    :global(.ant-table-thead tr .ant-table-cell) {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 24px;
+        /* identical to box height, or 171% */
+
+        /* Neutrals/600 Text Hide */
+
+        color: #5f6475;
+    }
+
+    :global(.ant-table-thead tr:first-child) {
+        // background: red;
+        :global(.ant-table-cell) {
+            background: #ffffff;
+            border-bottom-color: #f1f2f4;
+            &::before {
+                display: none;
+            }
+            &:first-child {
+                border-radius: 16px 0 0 0;
+                border-start-start-radius: 16px;
+            }
+            &:last-child {
+                border-radius: 0 16px 0 0;
+                border-start-end-radius: 16px;
+            }
+        }
+    }
+
+    :global(.ant-table-tbody .ant-table-row .ant-table-cell) {
+        border-bottom-color: #f1f2f4;
+    }
+
+    :global(.ant-table-tbody .ant-table-row:last-child) {
+        :global(.ant-table-cell) {
+            border-bottom: none;
+            &:first-child {
+                border-radius: 0 0 0 16px;
+            }
+            &:last-child {
+                border-radius: 0 0 16px 0;
+            }
+        }
+    }
+}
+.row {
+}
+.pagination {
+    &:global(.ant-table-wrapper table) {
+        background: #ffffff;
+        border: 1px solid #f1f2f4;
+        box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.1), 2px 2px 12px -2px rgba(232, 232, 232, 0.35);
+        border-radius: 16px 16px 0 0;
+        border-bottom: none;
+    }
+    :global(.ant-table-tbody .ant-table-row:last-child) {
+        :global(.ant-table-cell) {
+            border-bottom: none;
+            &:first-child {
+                border-radius: 0;
+            }
+            &:last-child {
+                border-radius: 0;
+            }
+        }
+    }
+    & + div {
+        padding: 16px 24px;
+        border-radius: 0 0 16px 16px;
+        border-top: none;
+        background: #ffffff;
+        border: 1px solid #f1f2f4;
+        box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.1), 2px 2px 12px -2px rgba(232, 232, 232, 0.35);
+    }
+}

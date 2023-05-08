@@ -1,0 +1,22 @@
+.element {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 12px;
+}
+.button {
+    border: 3px solid gray;
+    border-radius: 50%;
+    padding: 10px;
+    background-color: transparent;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    &:active {
+        border-color: green;
+    }
+}

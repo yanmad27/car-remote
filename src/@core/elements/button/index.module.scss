@@ -1,0 +1,29 @@
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    border-radius: 12px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 24px;
+    align-items: center;
+    text-align: center;
+    transition: all 0.3s ease;
+    &:disabled {
+        background: #ffffff !important;
+        color: #e4e5e9 !important;
+        border: 1px solid #e4e5e9 !important;
+    }
+
+    &:global(.cancel) {
+        background: #ffffff;
+        border: 1px solid #e4e5e9;
+        color: #111215;
+        &:global(.ant-btn):hover {
+            background-color: #ffffff;
+            color: #1f9454;
+            border: 1px solid #1f9454;
+        }
+    }
+}

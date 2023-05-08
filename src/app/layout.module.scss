@@ -1,0 +1,27 @@
+.container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+.background {
+    /* The image used */
+    background-image: url('/assets/bg.jpeg');
+
+    /* Add the blur effect */
+    filter: blur(16px);
+    -webkit-filter: blur(16px);
+
+    /* Full height */
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
