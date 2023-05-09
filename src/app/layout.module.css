@@ -7,7 +7,6 @@
 }
 .background {
     /* The image used */
-    background-image: url('/assets/bg.jpeg');
 
     /* Add the blur effect */
     filter: blur(16px);

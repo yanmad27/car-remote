@@ -1,4 +1,4 @@
-import styles from './Button.module.scss';
+import styles from './Button.module.css';
 
 interface Props {
 	icon: any;

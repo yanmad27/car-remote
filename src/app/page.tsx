@@ -1,4 +1,3 @@
-import '@core/styles/antd-base-color.scss';
 import Image from 'next/image';
 import styles from './page.module.css';
 

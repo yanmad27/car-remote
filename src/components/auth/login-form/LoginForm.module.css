@@ -1,0 +1,14 @@
+.container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: auto;
+    padding: 48px;
+    gap: 12px;
+    height: 100vh;
+    max-width: 500px;
+}
+
+.container button {
+    margin-top: 24px;
+}
