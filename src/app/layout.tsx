@@ -1,4 +1,5 @@
 import { Inter } from 'next/font/google';
+import { mergeClassName } from 'utils';
 import './globals.css';
 import styles from './layout.module.css';
 const inter = Inter({ subsets: ['latin'] });
@@ -11,7 +12,7 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
 		<html lang="en">
-			<body className={inter.className}>
+			<body className={mergeClassName(inter.className, styles.container)}>
 				<div className={styles.background} />
 				{children}
 			</body>
