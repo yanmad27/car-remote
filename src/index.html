@@ -11,7 +11,7 @@
 		<title>Login</title>
 	</head>
 	<body>
-		<form class="login-form">
+		<form class="login-form" onsubmit="handleSubmit(event)">
 			<h1>Login Form</h1>
 			<label htmlFor="email">Email</label>
 			<input name="email" id="email" />
@@ -19,5 +19,7 @@
 			<input type="password" name="password" id="password" />
 			<button type="submit">Login</button>
 		</form>
+		<script src="js/callApi.js"></script>
+		<script src="js/index.js"></script>
 	</body>
 </html>
