@@ -1,4 +1,4 @@
-.container {
+.login-form {
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -8,6 +8,6 @@
     max-width: 500px;
 }
 
-.container button {
+.login-form button {
     margin-top: 24px;
 }
