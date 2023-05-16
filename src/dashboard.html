@@ -184,6 +184,41 @@
 		</div>
 		<!-- <script src="js/callApi.js"></script> -->
 		<!-- <script src="js/dashboard.js"></script> -->
+		<script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+		<script>
+			const url = 'ws://broker.emqx.io:8083/mqtt';
+			const options = {
+				clean: true,
+				connectTimeout: 4000,
+				clientId: 'emqx_test',
+				username: 'mobile',
+				password: 'mobile488456',
+			};
+			const client = mqtt.connect(url, options);
+			client.on('connect', function () {
+				console.log('Connected');
+				client.subscribe('test', function (err) {
+					if (!err) {
+						client.publish('test', 'Hello mqtt');
+					}
+				});
+
+				client.publish('GsmClientTest/led', '1', { qos: 0, retain: true }, function (error) {
+					if (error) {
+						console.log(error);
+					} else {
+						console.log('Published');
+					}
+				});
+			});
+
+			// Receive messages
+			client.on('message', function (topic, message) {
+				// message is Buffer
+				console.log(message.toString());
+				client.end();
+			});
+		</script>
 		<script>
 			const BE_URL = 'http://localhost:3000';
 			async function callApi(url, method = 'GET', body = null) {
