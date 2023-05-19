@@ -6,7 +6,7 @@ services:
         image: app
         build:
             context: .
-            dockerfile: Dockerfile
+            dockerfile: dockerfile
         restart: always
         ports:
             - "80:8080"
