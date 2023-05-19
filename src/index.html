@@ -166,32 +166,40 @@
 		</form>
 		<!-- <script src="js/callApi.js"></script> -->
 		<!-- <script src="js/index.js"></script> -->
+		<script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
 		<script>
-			const BE_URL = 'http://localhost:3000';
-			async function callApi(url, method = 'GET', body = null) {
-				const response = await fetch(BE_URL + url, {
-					method,
-					body,
-					headers: {
-						'Content-Type': 'application/json',
-						token: localStorage.getItem('token'),
-					},
-				})
-					.then((res) => res.json())
-					.catch((err) => console.log(err));
+			const url = 'ws://broker.emqx.io:8083/mqtt';
+			const options = {
+				clean: true,
+				connectTimeout: 4000,
+				clientId: 'emqx_test',
+				username: 'mobile',
+				password: 'mobile488456',
+			};
+			const client = mqtt.connect(url, options);
 
-				return response;
-			}
-			async function handleSubmit(event) {
+			client.on('connect', function () {
+				console.log('Connected');
+			});
+
+			const handleSubmit = (event) => {
 				event.preventDefault();
-				const email = document.getElementById('email').value;
+
+				const username = document.getElementById('email').value;
 				const password = document.getElementById('password').value;
-				const res = await callApi('/login', 'POST', JSON.stringify({ email, password }));
-				if (true) {
-					localStorage.setItem('token', 'tokenabcdecs');
-					window.location.href = '/dashboard';
-				}
-			}
+				client.publish('GsmClientTest/led', `${username}:${password}`, { qos: 0, retain: true }, (error) => {
+					if (error) {
+						console.log(error);
+						return;
+					}
+					console.log('LOG ~ :', 'Login');
+				});
+			};
+
+			client.on('loginSuccess', function (topic, message) {
+				window.location.href = '/dashboard';
+				client.end();
+			});
 		</script>
 	</body>
 </html>

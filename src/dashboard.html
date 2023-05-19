@@ -211,36 +211,16 @@
 					}
 				});
 			});
-
-			// Receive messages
-			client.on('message', function (topic, message) {
-				// message is Buffer
-				console.log(message.toString());
-				client.end();
-			});
-		</script>
-		<script>
-			const BE_URL = 'http://localhost:3000';
-			async function callApi(url, method = 'GET', body = null) {
-				const response = await fetch(BE_URL + url, {
-					method,
-					body,
-					headers: {
-						'Content-Type': 'application/json',
-						token: localStorage.getItem('token'),
-					},
-				})
-					.then((res) => res.json())
-					.catch((err) => console.log(err));
-
-				return response;
-			}
 		</script>
 		<script>
 			async function handleButtonClick(action) {
-				console.log('LOG ~ handleButtonClick ~ action:', action);
-				const res = await callApi('/' + action, 'POST', JSON.stringify({ action }));
-				console.log(res);
+				client.publish('GsmClientTest/led', action, { qos: 0, retain: true }, function (error) {
+					if (error) {
+						console.log(error);
+					} else {
+						console.log('Published', action);
+					}
+				});
 			}
 		</script>
 	</body>
