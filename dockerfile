@@ -1,5 +1,5 @@
 # Build BASE
-FROM node:16
+FROM node:v18.16.0
 WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm i
