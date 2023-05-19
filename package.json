@@ -1,23 +1,17 @@
 {
-	"name": "car-remote",
-	"version": "1.0.0",
-	"description": "",
-	"main": "index.js",
-	"scripts": {
-		"start:dev": "serve src",
-		"test": "echo \"Error: no test specified\" && exit 1"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/yanmad27/car-remote.git"
-	},
-	"author": "",
-	"license": "ISC",
-	"bugs": {
-		"url": "https://github.com/yanmad27/car-remote/issues"
-	},
-	"homepage": "https://github.com/yanmad27/car-remote#readme",
-	"dependencies": {
-		"serve": "^14.2.0"
-	}
+  "name": "car-remote",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "mqtt": "^4.3.7",
+    "next": "13.4.3",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  }
 }

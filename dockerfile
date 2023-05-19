@@ -1,7 +1,8 @@
-FROM nginx:alpine
-
+# Build BASE
+FROM node:16
 WORKDIR /app
-
-COPY ./src .
-
-COPY ./nginx.conf /etc/nginx/nginx.conf
+COPY package.json package-lock.json ./
+RUN npm i
+RUN npm run build
+EXPOSE 3000
+CMD ["node", "server.js"]
