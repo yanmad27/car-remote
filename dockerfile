@@ -1,7 +1,7 @@
-FROM node:16
-WORKDIR /app
-COPY . .
-RUN npm install -g serve
-EXPOSE 3000
+FROM nginx:alpine
 
-CMD ["serve", "-l", "3000", "-s", "src"]
+WORKDIR /app
+
+COPY src .
+
+COPY ./nginx.conf /etc/nginx/nginx.conf
